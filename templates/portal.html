@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+        
+        {% block title %}
+        <title>Student Portal App</title>
+        {% endblock %}
+
+        {% block home_active %}
+        class="active"
+        {% endblock %}
+    
+        {% block content %}
+
+
+                <div class ="container">
+                    <h1 class="text-center">Student Portal Form</h1>
+                        
+                    {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                        
+                        
+                        
+                        <div class="bg-secondary p-1"><h4 class="text-light"> Personal Information </h4></div>
+                        
+                        
+                            
+                            <form action="{{ url_for('portalHandler') }}" id="portalForm" method="POST" enctype="multipart/form-data">
+                                <div class="row p-2 gy-3 fs-5">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="image" class="form-label">Upload Image</label>
+                                            <input type="file" class="form-control" name="image"
+                                            id="image" accept="image/*" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label class="form-label" for="firstname">FirstName</label>
+                                                <input type="text" class="form-control" name="firstname"
+                                                id="firstname" placeholder="Enter FirstName" >
+                                        </div>
+                                    </div>   
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="middlename">MiddleName</label>
+                                            <input type="text" class="form-control" name="middlename"
+                                            id="middlename" placeholder="Enter MiddleName" >
+                                        </div>
+                                    </div> 
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="lastname">LastName</label>
+                                            <input type="text" class="form-control" name="lastname"
+                                            id="lastname" placeholder="Enter LastName" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="email">Email</label>
+                                            <input type="email" class="form-control" name="email"
+                                            id="email" placeholder="Enter Email Address" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="dob">Date of Birth</label>
+                                            <input type="date" class="form-control" name="dob"
+                                            id="dob" >
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6 p-4">
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-label" for="male" class="form-check-label">Male</label>
+                                                <input type="radio" name="gender" id="male" value="male" class="form-check-input"  >
+                                            </div>
+                                        
+
+                                    
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-label" for="female" class="form-check-label">Female</label>
+                                                <input type="radio" name="gender" id="female" value="female" class="form-check-input"  >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="phone">Phone Number</label>
+                                            <input type="text" class="form-control" name="phone"
+                                            id="phone" placeholder="Enter PhoneNumber" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="address">Address</label>
+                                            <textarea class="form-control" id="address" cols="30" rows="2" placeholder="Enter Address"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="state">State of Origin</label>
+                                            <select name="state" id="state" class="form-control"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="lga">Local Government</label>
+                                            <select name="lga" id="lga" class="form-control"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="kin">Next of Kin</label>
+                                            <input type="text" name="kin" id="kin" class="form-control" placeholder="Enter the name of NextOfKin">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+
+                                    <div class="col-12 bg-secondary text-light mt-5 p-1">
+                                        <h4>Academics Related Information</h4>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="score">Jamb Score</label>
+                                            <input type="text" name="score" id="score" class="form-control" placeholder="Enter the name of NextOfKin">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 my-5 text-center">
+                                        <input type="submit" value="Submit" class="form-control btn btn-lg btn-secondary w-25">
+                                    </div>
+                                </div>
+                            </form>
+                        
+
+                        
+                </div>
+
+        {% endblock%}

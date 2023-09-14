@@ -1,0 +1,78 @@
+ body{
+    padding: 60px 0px 60px 0px;
+    position: relative;
+    min-height: 100vh;
+} 
+
+.container{
+    margin-top: 45px;
+    background-color: paleturquoise;
+}
+/* .home-body{
+    height: 100vh;
+} */
+
+
+/* .prelative{
+    padding-bottom: 60px;
+} */
+
+
+/* .inlative{
+    height: 90vh;
+} */
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.flash_success{
+    color: green;
+}
+
+
+.flash_error{
+    color: red;
+}
+
+
+.indigo{
+    background-color: rgb(38, 20, 104);
+}
+
+
+.light-indigo{
+    background-color: rgb(94, 84, 133);
+}
+
+
+.index-table{
+    border: solid;
+    border-width: 1rem 0rem 1rem 0rem;
+    border-color: rgb(38, 20, 104);
+}
+
+/* .btn, input[type="submit"]{
+    border-radius: 0% !important;
+    background-color: rgb(38, 20, 104) !important;
+} */
+
+.btnDissapear{
+    border: none;
+    background-color: white;
+}
+
+@media (max-width: 768px){
+
+    .homeText{
+        text-align: center !important;
+        /* margin-bottom: 2rem !important; */
+    }
+
+    .profile-pic{
+        width: 50%;
+        height: auto;
+    }
+}

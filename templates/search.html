@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Students Index Page</title>
+{% endblock %}
+
+{% block content %}
+
+    
+
+<div class="dropdown mb-5 d-flex justify-content-center w-100">
+    <button class="btn btn-secondary dropdown-toggle mt-5 w-75" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Search Students
+    </button>
+
+        <form action="{{ url_for('search') }}" method="POST" id="searchForm" class="dropdown-menu p-4">
+
+            <div class="form-group">
+                <div class="row gy-3">
+
+                    <div class="col-sm-12 col-lg-3">
+                        <input type="text" id="searchName" name="searchName" class="form-control" placeholder="Search Record By Name Only">
+                    </div>
+
+                    <div class="col-sm-6 col-lg-2">
+                        <select name="searchStatus" id="searchStatus" class="form-select">
+                            <option selected="true" disabled>Search By Status</option>
+                            <option value="undecided">undecided</option>
+                            <option value="admitted">admitted</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-2">
+                        <select name="searchGender" id="searchGender" class="form-select">
+                            <option selected="true" disabled>Search By Gender</option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-3">
+                        <input type="text" name="searchJamb" id="searchJamb" placeholder="Enter Jamb Score" class="form-control">
+                    </div>
+
+                    <div class="col-lg-2">
+                        <input type="submit" value="search" class="btn btn-primary form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="table-responsive w-100">
+
+        <table class="table table-hover table-striped table-bordered border-secondary">
+            <thead class="table-light">
+                <th scope="col">S/n</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Jamb Score</th>
+                <th scope="col">Admission Status</th>
+                <th scope="col">Action</th>
+            </thead>
+            <tbody>
+
+                {% for student in students %}
+
+                <tr>
+                    <td scope="row">{{ loop.index }}</td>
+                    <td>{{ student.firstname }} {{ student.middlename }} {{ student.lastname }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.jamb }}</td>
+                    <td> {{ student.status }} </td>
+
+                    <td>
+                        <form action="{{ url_for('detail') }}" method="POST">
+
+                            <input type="text" name="id" value="{{ student.student_id }}" class="d-none">
+
+                            <input type="submit" value="submit" class="btn btn-sm btn-primary">
+                        </form>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    </div>    
+
+
+
+
+
+
+{% endblock %}
